@@ -1,0 +1,11 @@
+[package]
+name = "holdem-shared"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+rand = "0.8"
+
+# 카드, 핸드 로직 등은 의존성 최소화

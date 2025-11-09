@@ -1,0 +1,16 @@
+[package]
+name = "holdem-client"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eframe = "0.33"
+egui = "0.33.0"
+tokio = { workspace = true }
+reqwest = { version = "0.12", features = ["json"] }
+tokio-tungstenite = "0.28.0"  # WebSocket 클라이언트
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# 공유 crate 사용
+holdem-shared = { path = "../shared" }
