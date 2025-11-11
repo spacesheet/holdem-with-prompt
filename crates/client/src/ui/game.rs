@@ -12,18 +12,18 @@ pub fn render(app: &mut PokerClient, ui: &mut egui::Ui) {
         components::render_status(ui, &app.status_message);
         ui.add_space(10.0);
 
-        if let Some(state) = &app.game_state {
+        if let Some(state) = app.game_state.clone() {
             // 게임 정보
-            components::render_game_info(ui, state);
+            components::render_game_info(ui, &state);
             ui.add_space(20.0);
 
             // 플레이어 정보
-            render_players(app, ui, state);
+            render_players(app, ui, &state);
             ui.add_space(20.0);
 
             // 커뮤니티 카드
             if !state.community_cards.is_empty() {
-                render_community_cards(ui, state);
+                render_community_cards(ui, &state);
                 ui.add_space(20.0);
             }
 
@@ -34,7 +34,7 @@ pub fn render(app: &mut PokerClient, ui: &mut egui::Ui) {
             }
 
             // 액션 버튼
-            render_actions(app, ui, state);
+            render_actions(app, ui, &state);
         } else {
             ui.label("게임 상태를 불러오는 중...");
         }
