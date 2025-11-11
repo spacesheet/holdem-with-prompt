@@ -15,6 +15,6 @@ fn main() -> Result<(), eframe::Error> {
     eframe::run_native(
         "텍사스 홀덤 포커",
         options,
-        Box::new(|_cc| Box::new(PokerClient::default())),
+        Box::new(|_cc| Ok(Box::new(PokerClient::default()))),
     )
 }
