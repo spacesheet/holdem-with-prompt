@@ -8,11 +8,11 @@ pub fn render_card(ui: &mut egui::Ui, card: &Card) {
         Suit::Clubs | Suit::Spades => egui::Color32::from_rgb(50, 50, 50),
     };
 
-    egui::Frame::none()
+    egui::Frame::new()
         .fill(egui::Color32::WHITE)
         .stroke(egui::Stroke::new(2.0, egui::Color32::GRAY))
         .inner_margin(8.0)
-        .rounding(5.0)
+        .corner_radius(5.0)
         .show(ui, |ui| {
             ui.set_min_size(egui::vec2(50.0, 70.0));
             ui.vertical_centered(|ui| {
@@ -33,15 +33,15 @@ pub fn render_card(ui: &mut egui::Ui, card: &Card) {
 /// 플레이어 정보 카드 렌더링
 pub fn render_player_card(ui: &mut egui::Ui, player: &Player, is_me: bool) {
     let frame = if is_me {
-        egui::Frame::none()
+        egui::Frame::new()
             .fill(egui::Color32::from_rgb(100, 150, 255))
             .inner_margin(10.0)
-            .rounding(5.0)
+            .corner_radius(5.0)
     } else {
-        egui::Frame::none()
+        egui::Frame::new()
             .fill(egui::Color32::from_rgb(200, 200, 200))
             .inner_margin(10.0)
-            .rounding(5.0)
+            .corner_radius(5.0)
     };
 
     frame.show(ui, |ui| {
